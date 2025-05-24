@@ -10,4 +10,5 @@ class Solution:
                 dig.append(log)
 
         let.sort(key=lambda x: (x.split()[1:], x.split()[0]))
-        return let + dig
+        let.extend(dig)
+        return let
