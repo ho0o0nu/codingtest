@@ -2,13 +2,13 @@ class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         if 0 in nums:
             answer = [0] * len(nums)
-            for i in nums:
-                if nums[i] == 0:
+            for i, v1 in enumerate(nums):
+                if v1 == 0:
                     prod = 1
-                    for num in nums:
-                        if num == nums[i]:
+                    for j, v2 in enumerate(nums):
+                        if i == j:
                             continue
-                        prod *= num
+                        prod *= v2
                     answer[i] = prod
         else:
             answer = []
