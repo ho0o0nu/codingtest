@@ -1,10 +1,16 @@
 class Solution:
     def numJewelsInStones(self, jewels: str, stones: str) -> int:
-        counter = Counter(stones)
+        freqs = {}  # 해시 테이블
+        count = 0
+
+        for char in stones:
+            if char not in freqs:
+                freqs[char] = 1
+            else:
+                freqs[char] += 1
+
+        for char in jewels:
+            if char in freqs:
+                count += freqs[char]
         
-        result = 0
-        for jewel in jewels:
-            if jewel in counter:
-                result += counter.get(jewel)
-        
-        return result
+        return count
